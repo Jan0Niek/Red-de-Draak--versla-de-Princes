@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0mmfedw8fpkf"]
 
 [ext_resource type="PackedScene" uid="uid://buahr3hnlyh6g" path="res://player.tscn" id="1_w36k5"]
-[ext_resource type="PackedScene" path="res://blokje.tscn" id="2_pl7kb"]
+[ext_resource type="PackedScene" uid="uid://d2ofdi34n12ty" path="res://blokje.tscn" id="2_pl7kb"]
 
 [node name="Node2D" type="Node2D"]
 
