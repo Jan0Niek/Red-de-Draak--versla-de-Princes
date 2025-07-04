@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 
 	direction = Input.get_axis("move_left", "move_right")
 	if direction:
+		$Sprite2D.flip_h = -direction < 0
 		velocity.x = direction * speed * speed_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
