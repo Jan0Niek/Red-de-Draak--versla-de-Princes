@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://bxxesmflbhe6l"]
+[gd_scene load_steps=3 format=3 uid="uid://bxxesmflbhe6l"]
+
+[ext_resource type="PackedScene" uid="uid://bsee8ruld14yh" path="res://player.tscn" id="1_s5d8g"]
+[ext_resource type="PackedScene" uid="uid://cgqo3texvn4i6" path="res://main castle level.tscn" id="2_15tlw"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Castle1" parent="." instance=ExtResource("2_15tlw")]
+
+[node name="Player" parent="." instance=ExtResource("1_s5d8g")]
+z_index = 5
+position = Vector2(644, -248)
+
+[node name="Player2" parent="." instance=ExtResource("1_s5d8g")]
+z_index = 5
+position = Vector2(186, 50)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(-321.906, 57.0216)
+zoom = Vector2(0.61, 0.61)

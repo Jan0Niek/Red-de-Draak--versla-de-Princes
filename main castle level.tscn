@@ -1,3 +1,91 @@
-[gd_scene format=3 uid="uid://cgqo3texvn4i6"]
+[gd_scene load_steps=12 format=3 uid="uid://cgqo3texvn4i6"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dmrvulefadt3q" path="res://castle 1 level images/achtergrond zonder bowser.png" id="1_fdcei"]
+[ext_resource type="Script" uid="uid://bglwfllpfdq3y" path="res://axe area.gd" id="1_wwktr"]
+[ext_resource type="Texture2D" uid="uid://dumv3jc6acmg3" path="res://castle 1 level images/achtergrond castle.png" id="2_t1wb3"]
+[ext_resource type="Script" uid="uid://bt4dmvbc2400n" path="res://sprite_2d.gd" id="3_jc1ce"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxyke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fdcei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t1wb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grqst"]
+size = Vector2(60, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnhtw"]
+size = Vector2(1096, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkyj6"]
+size = Vector2(381.5, 387.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgdy0"]
+size = Vector2(1184, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35jqi"]
+size = Vector2(113, 333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iva1"]
+size = Vector2(195, 460)
+
+[node name="Castle1" type="Node2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vxyke")
+frame_progress = 0.254439
+script = ExtResource("3_jc1ce")
+
+[node name="axe area" type="Area2D" parent="."]
+position = Vector2(742.5, 295)
+script = ExtResource("1_wwktr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="axe area"]
+modulate = Color(0.34902, 0.698039, 0.882353, 1)
+self_modulate = Color(0.764706, 0.243137, 0.529412, 1)
+position = Vector2(-45.5, -270)
+shape = SubResource("RectangleShape2D_grqst")
+
+[node name="removable ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="removable ground"]
+position = Vector2(98, 192.5)
+shape = SubResource("RectangleShape2D_rnhtw")
+debug_color = Color(0.780392, 0.290196, 0.815686, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-643.5, 341.5)
+shape = SubResource("RectangleShape2D_bkyj6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(-646.75, -469)
+shape = SubResource("RectangleShape2D_bkyj6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(137, -487)
+shape = SubResource("RectangleShape2D_lgdy0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(784.5, -361.5)
+shape = SubResource("RectangleShape2D_35jqi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(742.5, 295)
+shape = SubResource("RectangleShape2D_7iva1")
+
+[connection signal="body_entered" from="axe area" to="Sprite2D" method="_on_axe_area_body_entered"]
+[connection signal="body_entered" from="axe area" to="axe area" method="_on_body_entered"]
