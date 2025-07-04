@@ -15,4 +15,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	get_parent().get_node("removable ground/CollisionShape2D").set_deferred("disabled", true)
+	if body.name == "Mario":
+		get_parent().get_node("removable ground/CollisionShape2D").set_deferred("disabled", true)
