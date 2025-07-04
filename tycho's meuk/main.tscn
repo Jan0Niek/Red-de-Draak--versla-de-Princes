@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch68r48rt4mvh"]
 
-[ext_resource type="PackedScene" uid="uid://tl3u5djfk74j" path="res://ground.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cpqxwg724dpwt" path="res://mario.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://tl3u5djfk74j" path="res://tycho's meuk/ground.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cpqxwg724dpwt" path="res://tycho's meuk/mario.tscn" id="1_ig7tw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(169, 317.5)
@@ -14,6 +14,7 @@ scale = Vector2(20, 1.515)
 
 [node name="mario" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(0, -91)
+script = null
 
 [node name="kill-plane" type="Area2D" parent="."]
 

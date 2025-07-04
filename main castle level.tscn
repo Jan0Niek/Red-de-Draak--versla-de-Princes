@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgqo3texvn4i6"]
+[gd_scene load_steps=13 format=3 uid="uid://cgqo3texvn4i6"]
 
 [ext_resource type="Texture2D" uid="uid://dmrvulefadt3q" path="res://castle 1 level images/achtergrond zonder bowser.png" id="1_fdcei"]
 [ext_resource type="Script" uid="uid://bglwfllpfdq3y" path="res://axe area.gd" id="1_wwktr"]
@@ -26,7 +26,7 @@ size = Vector2(60, 72)
 size = Vector2(1096, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkyj6"]
-size = Vector2(381.5, 387.5)
+size = Vector2(907.25, 387.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgdy0"]
 size = Vector2(1184, 82)
@@ -36,6 +36,9 @@ size = Vector2(113, 333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7iva1"]
 size = Vector2(195, 460)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc1ce"]
+size = Vector2(189, 967.75)
 
 [node name="Castle1" type="Node2D"]
 
@@ -64,7 +67,7 @@ debug_color = Color(0.780392, 0.290196, 0.815686, 0.419608)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-643.5, 341.5)
+position = Vector2(-906.375, 341.5)
 shape = SubResource("RectangleShape2D_bkyj6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
@@ -86,6 +89,10 @@ shape = SubResource("RectangleShape2D_35jqi")
 visible = false
 position = Vector2(742.5, 295)
 shape = SubResource("RectangleShape2D_7iva1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1358, -79.125)
+shape = SubResource("RectangleShape2D_jc1ce")
 
 [connection signal="body_entered" from="axe area" to="Sprite2D" method="_on_axe_area_body_entered"]
 [connection signal="body_entered" from="axe area" to="axe area" method="_on_body_entered"]
