@@ -13,6 +13,7 @@ var jump_multiplier = -30.0
 var gravity = 998.0
 var direction = 0
 var game_manager
+var flipped = false
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -20,7 +21,6 @@ func _physics_process(delta: float) -> void:
 
 	direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		$Sprite2D.flip_h = -direction < 0
 		velocity.x = direction * speed * speed_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
@@ -34,10 +34,12 @@ func _input(event):
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 
-	if event.is_action_pressed("move_down"):
-		set_collision_mask_value(10, false)
-	else:
-		set_collision_mask_value(10, true)
+	if event.is_action_pressed("move_left") and flipped == true:
+		flipped = false
+		scale.x = -1
+	if event.is_action_pressed("move_right") and flipped == false:
+		flipped = true
+		scale.x = -1
 
 func shoot_fireball():
 	if fireball_scene == null:
