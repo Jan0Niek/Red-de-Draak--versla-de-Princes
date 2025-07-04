@@ -36,12 +36,20 @@ horizontal_alignment = 2
 
 [node name="Mario" parent="." instance=ExtResource("3_h2yge")]
 position = Vector2(-1050, -30)
-scale = Vector2(4, 4.038)
+scale = Vector2(3, 3.028)
 
 [node name="killPlane" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killPlane"]
-position = Vector2(33, -134)
+position = Vector2(-154, -133)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killPlane"]
+position = Vector2(130, -134)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="killPlane"]
+position = Vector2(408, -130)
 shape = SubResource("RectangleShape2D_h2yge")
 
 [connection signal="body_entered" from="killPlane" to="Mario" method="_on_kill_plane_body_entered"]
