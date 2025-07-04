@@ -46,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	elif lockedInJump < (0.35*lockedInTimerTime) and direction:
 		lockedInJump = 0
 		#print('dirierieu')
+			
+
 
 
 	move_and_slide()
@@ -61,10 +63,16 @@ func _input(event):
 		velocity.y = -800
 		velocity.x = -900
 
-	if event.is_action_pressed("move_down"):
-		set_collision_mask_value(10, false)
-	else:
-		set_collision_mask_value(10, true)
+	if event.is_action_pressed("move_left") and flipped == true:
+		flipped = false
+		scale.x = -1
+	if event.is_action_pressed("move_right") and flipped == false:
+		flipped = true
+		scale.x = -1
+	if event.is_action_pressed("vert") and is_on_floor():
+		lockedInJump = lockedInTimerTime
+		velocity.y = -800
+		velocity.x = -900
 
 	if event.is_action_pressed("move_left") and flipped == true:
 		flipped = false
