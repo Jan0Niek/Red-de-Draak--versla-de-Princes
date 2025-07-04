@@ -1,23 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsee8ruld14yh"]
+[gd_scene load_steps=5 format=3 uid="uid://buahr3hnlyh6g"]
 
-[ext_resource type="Texture2D" uid="uid://b2sddrrba7p6l" path="res://icon.svg" id="1_bld7w"]
-[ext_resource type="Script" uid="uid://ca10fuvf15p8c" path="res://player.gd" id="1_kd1ek"]
+[ext_resource type="Script" uid="uid://dhdka0dbbtxch" path="res://player_controller.gd" id="1_286dt"]
+[ext_resource type="Texture2D" uid="uid://djbcahyc00mha" path="res://bowser.png" id="1_v66af"]
+[ext_resource type="PackedScene" uid="uid://de1m61j6uy50g" path="res://bullet.tscn" id="2_48fqn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwrbf"]
-size = Vector2(128, 127)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7dd3"]
+radius = 333.0
+height = 666.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_kd1ek")
+script = ExtResource("1_286dt")
+fireball_scene = ExtResource("2_48fqn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bld7w")
+[node name="Mouth" type="Node2D" parent="."]
+position = Vector2(-216, 27)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -0.5)
-shape = SubResource("RectangleShape2D_nwrbf")
+position = Vector2(18, 15)
+shape = SubResource("CapsuleShape2D_f7dd3")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v66af")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -0.5)
-shape = SubResource("RectangleShape2D_nwrbf")
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.05783, 1.07413)
+zoom = Vector2(0.45, 0.45)
+
+[node name="Mouth2" type="Node2D" parent="."]
+position = Vector2(-216, 27)

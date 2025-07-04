@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ofdi34n12ty"]
+
+[ext_resource type="Texture2D" uid="uid://cc5sxwdqq6775" path="res://blokje.png" id="1_f2e77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7nps"]
+size = Vector2(955, 580)
+
+[node name="Blokje" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 317)
+shape = SubResource("RectangleShape2D_u7nps")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, 445)
+texture = ExtResource("1_f2e77")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://buahr3hnlyh6g"]
+
+[ext_resource type="Script" path="res://player_controller.gd" id="1_286dt"]
+[ext_resource type="Texture2D" uid="uid://djbcahyc00mha" path="res://bowser.png" id="1_v66af"]
+[ext_resource type="PackedScene" uid="uid://de1m61j6uy50g" path="res://bullet.tscn" id="2_48fqn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7dd3"]
+radius = 333.0
+height = 666.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_286dt")
+fireball_scene = ExtResource("2_48fqn")
+
+[node name="Mouth" type="Node2D" parent="."]
+position = Vector2(-216, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 15)
+shape = SubResource("CapsuleShape2D_f7dd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v66af")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
