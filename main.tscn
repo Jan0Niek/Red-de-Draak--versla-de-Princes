@@ -11,6 +11,10 @@
 z_index = 5
 position = Vector2(644, -248)
 
+[node name="Player2" parent="." instance=ExtResource("1_s5d8g")]
+z_index = 5
+position = Vector2(186, 50)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(-321.906, 57.0216)
 zoom = Vector2(0.61, 0.61)

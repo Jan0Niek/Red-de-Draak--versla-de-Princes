@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cgqo3texvn4i6"]
 
 [ext_resource type="Texture2D" uid="uid://dmrvulefadt3q" path="res://castle 1 level images/achtergrond zonder bowser.png" id="1_fdcei"]
-[ext_resource type="Script" path="res://axe area.gd" id="1_wwktr"]
+[ext_resource type="Script" uid="uid://bglwfllpfdq3y" path="res://axe area.gd" id="1_wwktr"]
 [ext_resource type="Texture2D" uid="uid://dumv3jc6acmg3" path="res://castle 1 level images/achtergrond castle.png" id="2_t1wb3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxyke"]
@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grqst"]
-size = Vector2(276, 226)
+size = Vector2(60, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnhtw"]
 size = Vector2(1096, 83)
@@ -44,13 +44,12 @@ frame_progress = 0.254439
 
 [node name="axe area" type="Area2D" parent="."]
 position = Vector2(742.5, 295)
-monitoring = false
 script = ExtResource("1_wwktr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="axe area"]
 modulate = Color(0.34902, 0.698039, 0.882353, 1)
 self_modulate = Color(0.764706, 0.243137, 0.529412, 1)
-position = Vector2(-61.5, -313)
+position = Vector2(-45.5, -270)
 shape = SubResource("RectangleShape2D_grqst")
 
 [node name="removable ground" type="StaticBody2D" parent="."]
@@ -86,6 +85,4 @@ visible = false
 position = Vector2(742.5, 295)
 shape = SubResource("RectangleShape2D_7iva1")
 
-[connection signal="area_entered" from="axe area" to="axe area" method="_on_area_entered"]
 [connection signal="body_entered" from="axe area" to="axe area" method="_on_body_entered"]
-[connection signal="mouse_entered" from="axe area" to="axe area" method="_on_mouse_entered"]

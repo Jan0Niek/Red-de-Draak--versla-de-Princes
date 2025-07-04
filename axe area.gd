@@ -15,17 +15,4 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print("ding raakte axe!!!")
-	#get_parent().get_parent().get_node("player").velocity.y -= 10
-
-
-
-
-func _on_area_entered(area):
-	print("oaishdiasuh")
-	
-
-
-
-func _on_mouse_entered():
-	print("mous wel!!")
+	get_parent().get_node("removable ground/CollisionShape2D").set_deferred("disabled", true)
