@@ -26,5 +26,5 @@ texture = ExtResource("1_v66af")
 scale = Vector2(1.05783, 1.07413)
 zoom = Vector2(0.45, 0.45)
 
-[node name="Mouth" type="Node2D" parent="."]
+[node name="Mouth2" type="Node2D" parent="."]
 position = Vector2(-216, 27)
