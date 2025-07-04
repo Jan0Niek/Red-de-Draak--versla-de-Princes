@@ -16,6 +16,7 @@ var game_manager
 var flipped = false
 var lockedInJump = 0
 const lockedInTimerTime = 120
+var fireCounter = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -28,7 +29,6 @@ func _physics_process(delta: float) -> void:
 #
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
-	print(lockedInJump)
 	
 	if lockedInJump != 0:
 		lockedInJump -= 1
@@ -45,8 +45,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * speed * speed_multiplier
 	elif lockedInJump < (0.35*lockedInTimerTime) and direction:
 		lockedInJump = 0
-		#print('dirierieu')
 			
+	if fireCounter != 0:
+		fireCounter -= 1
 
 
 
@@ -65,14 +66,16 @@ func _input(event):
 
 	if event.is_action_pressed("move_left") and flipped == true:
 		flipped = false
-		scale.x = -1
+		scale.x = -0.4
 	if event.is_action_pressed("move_right") and flipped == false:
 		flipped = true
-		scale.x = -1
+		scale.x = -0.4
 	if event.is_action_pressed("vert") and is_on_floor():
 		lockedInJump = lockedInTimerTime
 		velocity.y = -800
 		velocity.x = -900
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 
 	if event.is_action_pressed("move_left") and flipped == true:
 		flipped = false
@@ -81,7 +84,7 @@ func _input(event):
 		flipped = true
 		scale.x = -1
 func shoot_fireball():
-	if fireball_scene == null:
+	if fireball_scene == null or fireCounter != 0:
 		return
 
 	var fireball_instance = fireball_scene.instantiate()
@@ -100,3 +103,4 @@ func shoot_fireball():
 		if fireball_instance.has_node("Sprite2D"):
 			fireball_instance.get_node("Sprite2D").flip_v = true
 	get_tree().current_scene.add_child(fireball_instance)
+	fireCounter = 45

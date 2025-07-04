@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgqo3texvn4i6"]
+[gd_scene load_steps=13 format=3 uid="uid://bp0cucce732ft"]
 
 [ext_resource type="Texture2D" uid="uid://dmrvulefadt3q" path="res://castle 1 level images/achtergrond zonder bowser.png" id="1_fdcei"]
-[ext_resource type="Script" uid="uid://bglwfllpfdq3y" path="res://axe area.gd" id="1_wwktr"]
+[ext_resource type="Script" path="res://axe area.gd" id="1_wwktr"]
 [ext_resource type="Texture2D" uid="uid://dumv3jc6acmg3" path="res://castle 1 level images/achtergrond castle.png" id="2_t1wb3"]
-[ext_resource type="Script" uid="uid://bt4dmvbc2400n" path="res://sprite_2d.gd" id="3_jc1ce"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="3_jc1ce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxyke"]
 animations = [{

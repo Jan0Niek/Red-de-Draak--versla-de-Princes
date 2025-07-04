@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxxesmflbhe6l"]
+[gd_scene load_steps=6 format=3 uid="uid://bxxesmflbhe6l"]
 
-[ext_resource type="PackedScene" uid="uid://cgqo3texvn4i6" path="res://main castle level.tscn" id="2_15tlw"]
+[ext_resource type="PackedScene" uid="uid://bp0cucce732ft" path="res://main castle level.tscn" id="2_15tlw"]
 [ext_resource type="FontFile" uid="uid://blkv7kmd5byb7" path="res://SuperMario256.ttf" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://cpqxwg724dpwt" path="res://tycho's meuk/mario.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://buahr3hnlyh6g" path="res://player.tscn" id="4_1bvp3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(86, 474)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(7.7391, 20)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-170, -16)
+rotation = 3.14159
+scale = Vector2(5.42699, -24.7036)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(29.4823, 0.16192)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-151.834, -0.728638)
+shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="Castle1" parent="." instance=ExtResource("2_15tlw")]
 
@@ -40,16 +56,10 @@ scale = Vector2(3, 3.028)
 
 [node name="killPlane" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killPlane"]
-position = Vector2(-154, -133)
-shape = SubResource("RectangleShape2D_h2yge")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="killPlane"]
-position = Vector2(130, -134)
-shape = SubResource("RectangleShape2D_h2yge")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="killPlane"]
-position = Vector2(408, -130)
-shape = SubResource("RectangleShape2D_h2yge")
+[node name="Player" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(297, 0)
+scale = Vector2(0.399998, 0.399998)
+collision_layer = 3
+collision_mask = 3
 
 [connection signal="body_entered" from="killPlane" to="Mario" method="_on_kill_plane_body_entered"]

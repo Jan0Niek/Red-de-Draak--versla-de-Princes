@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://de1m61j6uy50g"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_3nu38"]
+[ext_resource type="Script" uid="uid://bsi708wcehg88" path="res://bullet.gd" id="1_3nu38"]
 [ext_resource type="Texture2D" uid="uid://3kh71jbtwexj" path="res://vuurbalpad_750x1000_f8f8f8.u4-removebg-preview.png" id="1_hj0y3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5nwe"]
@@ -11,12 +11,14 @@ height = 26.1973
 script = ExtResource("1_3nu38")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-62, 38)
-scale = Vector2(12.6895, 11.0041)
+position = Vector2(-25, 12)
+scale = Vector2(4.71134, 4.08559)
 shape = SubResource("CapsuleShape2D_l5nwe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7, 3)
+scale = Vector2(0.349084, 0.349084)
 texture = ExtResource("1_hj0y3")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="." method="Fireball"]

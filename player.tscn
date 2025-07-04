@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhdka0dbbtxch" path="res://player_controller.gd" id="1_286dt"]
 [ext_resource type="Texture2D" uid="uid://djbcahyc00mha" path="res://bowser.png" id="1_v66af"]
-[ext_resource type="PackedScene" path="res://bullet.tscn" id="2_48fqn"]
+[ext_resource type="PackedScene" uid="uid://de1m61j6uy50g" path="res://bullet.tscn" id="2_48fqn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f7dd3"]
 radius = 333.0

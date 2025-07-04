@@ -1,10 +1,10 @@
 extends CharacterBody2D
-const JUMP_HEIGHT = 800
+const JUMP_HEIGHT = 1000
 const GRAVITY = 1300
-const STANDARD_V = 200
-var iFrames = 0
-var power = 1
-var score = 0
+var STANDARD_V = 200
+@export var iFrames = 0
+@export var power = 1
+@export var score = 0
 
 func _physics_process(delta: float) -> void:
 	velocity.y += delta * GRAVITY
@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func _process(delta: float) -> void:
+	print(iFrames)
 	if not is_on_floor():
 		$Sprite2D.frame = 2 + power * 3
 	elif velocity.x == 0:
@@ -24,20 +25,20 @@ func _process(delta: float) -> void:
 	else:
 		$Sprite2D.frame = 1 + power * 3
 	
-	if iFrames:
+	if iFrames != 0:
 		iFrames -= 1
 
 func _init() -> void:
 	velocity.x = STANDARD_V
 	position = Vector2(0, -100)
 
-func _on_kill_plane_body_entered(body: Node2D) -> void:
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	if power == 0 and iFrames == 0:
 		score += 1
 		position = Vector2(-1050, -30)
 		$"../Camera2D/Control/score".text = str(score)
 		power = 1 if score <= 5 else  (1 + (randi() % 2) if score <= 10 else 2)
-	else: 
+		STANDARD_V = 200 + score * 20
+	elif iFrames == 0: 
 		power -= 1
 		iFrames = 60
-		
