@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://de1m61j6uy50g"]
+
+[ext_resource type="Texture2D" uid="uid://3kh71jbtwexj" path="res://vuurbalpad_750x1000_f8f8f8.u4-removebg-preview.png" id="1_hj0y3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l5nwe"]
+radius = 11.4726
+height = 26.1973
+
+[node name="Fireball" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-62, 38)
+scale = Vector2(12.6895, 11.0041)
+shape = SubResource("CapsuleShape2D_l5nwe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7, 3)
+texture = ExtResource("1_hj0y3")
