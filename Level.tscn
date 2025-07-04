@@ -9,3 +9,4 @@
 position = Vector2(-35, -402)
 
 [node name="Blokje" parent="." instance=ExtResource("2_pl7kb")]
+scale = Vector2(11.2, 1)
