@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch68r48rt4mvh"]
+
+[ext_resource type="PackedScene" uid="uid://tl3u5djfk74j" path="res://ground.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cpqxwg724dpwt" path="res://mario.tscn" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(169, 317.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ground" parent="." instance=ExtResource("1_0xm2m")]
+position = Vector2(0, 64)
+scale = Vector2(20, 1.515)
+
+[node name="mario" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(0, -91)
+
+[node name="kill-plane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill-plane"]
+position = Vector2(492, -195.25)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(244, -167)
+scale = Vector2(0.715819, 0.840614)
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = 669.164
+offset_top = -365.209
+offset_right = 776.164
+offset_bottom = -316.209
+scale = Vector2(1, 1.19034)
+text = "0
+"
+horizontal_alignment = 2
+
+[connection signal="body_entered" from="kill-plane" to="mario" method="_on_killplane_body_entered"]
