@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgqo3texvn4i6"]
+[gd_scene load_steps=12 format=3 uid="uid://cgqo3texvn4i6"]
 
 [ext_resource type="Texture2D" uid="uid://dmrvulefadt3q" path="res://castle 1 level images/achtergrond zonder bowser.png" id="1_fdcei"]
 [ext_resource type="Script" uid="uid://bglwfllpfdq3y" path="res://axe area.gd" id="1_wwktr"]
 [ext_resource type="Texture2D" uid="uid://dumv3jc6acmg3" path="res://castle 1 level images/achtergrond castle.png" id="2_t1wb3"]
+[ext_resource type="Script" uid="uid://bt4dmvbc2400n" path="res://sprite_2d.gd" id="3_jc1ce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxyke"]
 animations = [{
@@ -41,6 +42,7 @@ size = Vector2(195, 460)
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vxyke")
 frame_progress = 0.254439
+script = ExtResource("3_jc1ce")
 
 [node name="axe area" type="Area2D" parent="."]
 position = Vector2(742.5, 295)
@@ -85,4 +87,5 @@ visible = false
 position = Vector2(742.5, 295)
 shape = SubResource("RectangleShape2D_7iva1")
 
+[connection signal="body_entered" from="axe area" to="Sprite2D" method="_on_axe_area_body_entered"]
 [connection signal="body_entered" from="axe area" to="axe area" method="_on_body_entered"]

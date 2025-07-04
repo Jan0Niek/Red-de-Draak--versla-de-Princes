@@ -1,0 +1,5 @@
+extends AnimatedSprite2D
+
+
+func _on_axe_area_body_entered(body: Node2D) -> void:
+	frame = 1
